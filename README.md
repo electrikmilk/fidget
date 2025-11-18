@@ -8,4 +8,6 @@ The runtime is freestanding (no libc), and text output is implemented manually.
 ./run.sh
 ```
 
+This is mainly run on Linux, I have yet to try it on other platforms. Basically, the boot process may be Linux x86 specific.
+
 Just for fun :)
