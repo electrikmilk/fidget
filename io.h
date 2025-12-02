@@ -64,8 +64,15 @@ int print(const char *str) {
     return 1;
 }
 
-// static inline void outb(int port, int val) {
-//
-// }
+static inline unsigned char inb(unsigned short port)
+{
+    unsigned char result;
+    __asm__("in %%dx, %%al" : "=a" (result) : "d" (port));
+    return result;
+}
+
+static inline void outb(unsigned short port, unsigned char data) {
+    __asm__("out %%al, %%dx" : : "a" (data), "d" (port));
+}
 
 #endif //FIDGET_IO_H
