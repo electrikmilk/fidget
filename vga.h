@@ -40,10 +40,4 @@ extern unsigned short const vga_buffer_limit;
 
 void fill_color(unsigned color);
 
-// void disable_cursor()
-// {
-//     outb(0x3D4, 0x0A);
-//     outb(0x3D5, 0x20);
-// }
-
 #endif //FIDGET_VGA_H
