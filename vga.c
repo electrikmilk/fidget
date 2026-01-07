@@ -11,15 +11,14 @@ unsigned short const vga_buffer_limit = (VGA_WIDTH * 2) * VGA_HEIGHT;
 
 // Clears the VGA buffer.
 void clear_screen() {
-    unsigned short limit = (VGA_WIDTH * 2) * VGA_HEIGHT;
-    for (unsigned short i = 0; i < limit; ++i) {
+    for (unsigned short i = 0; i < vga_buffer_limit; ++i) {
         vga_buffer[i] = 0;
     }
     vga_buffer_pos = 0;
 }
 
 // Fill VGA buffer with color code.
-void fill_color(unsigned color) {
+void fill_color(const unsigned color) {
     for (unsigned short i = 0; i < vga_buffer_limit; ++i) {
         vga_buffer[i] = ' ';
         vga_buffer[i+1] = color;
@@ -28,6 +27,7 @@ void fill_color(unsigned color) {
     vga_buffer_pos = 0;
 }
 
+// Move VGA buffer position to next line on screen.
 void new_line() {
     col_idx = 0;
     if (line_idx >= VGA_HEIGHT) {
@@ -38,12 +38,15 @@ void new_line() {
     ++line_idx;
 }
 
+// Return to the end of the line in the VGA buffer.
 void carriage_return() {
     --line_idx;
     col_idx = 0;
     vga_buffer_pos = VGA_WIDTH * line_idx;
 }
 
+// Print a string to the current position in the VGA buffer.
+// Supports new line (\n) and carriage/line return (\r).
 int print(const char *str) {
     const unsigned int str_len = strlen(str);
     for (unsigned short int i = 0; i < str_len; i++) {
@@ -61,17 +64,6 @@ int print(const char *str) {
         case '\r':
             carriage_return();
             continue;
-            // case '%':
-            //     switch (str[i+1]) {
-            //         case 'd':
-            //             char* integer;
-            //             itoa(, integer);
-            //             break;
-            //         case 's':
-            //             printf(va_arg())
-            //     }
-            //     ++i;
-            //     continue;
         default:
         }
 
