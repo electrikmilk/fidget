@@ -52,9 +52,9 @@ int print(const char *str) {
             new_line();
         }
 
-        char print_character = str[i];
+        const char print_character = str[i];
 
-        switch(str[i]) {
+        switch(print_character) {
         case '\n':
             new_line();
             continue;
