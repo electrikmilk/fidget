@@ -33,11 +33,16 @@ extern unsigned int vga_buffer_pos;
 extern unsigned int col_idx;
 extern unsigned int line_idx;
 
-/* Fills the screen with white background and black text */
 void clear_screen();
 
 extern unsigned short const vga_buffer_limit;
 
 void fill_color(unsigned color);
+
+void new_line();
+
+void carriage_return();
+
+int print(const char *str);
 
 #endif //FIDGET_VGA_H
