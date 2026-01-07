@@ -22,18 +22,18 @@ int count_digits(int num) {
 }
 
 // Convert integer to ASCII.
-void itoa(int num, char *number) {
-    const int digit_count = count_digits(num);
+void iota(int n, char *str) {
+    const int digit_count = count_digits(n);
     int index = digit_count - 1;
-    if (num == 0 && digit_count == 1) {
-        number[0] = '0';
-        number[1] = '\0';
+    if (n == 0 && digit_count == 1) {
+        str[0] = '0';
+        str[1] = '\0';
     } else{
-        while(num != 0) {
-            number[index] = (num % 10) + '0';
+        while(n != 0) {
+            str[index] = (n % 10) + '0';
             index--;
-            num = num / 10;
+            n = n / 10;
         }
-        number[digit_count] = '\0';
+        str[digit_count] = '\0';
     }
 }
