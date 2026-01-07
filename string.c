@@ -1,5 +1,8 @@
-#include "string.h"
+//
+// Created by electrikmilk on 01/06/26.
+//
 
+// Get the length of a string.
 unsigned long strlen(const char *str) {
     unsigned long i = 0;
     while(str[i] != '\0') {

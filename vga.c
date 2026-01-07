@@ -1,4 +1,5 @@
 #include "vga.h"
+#include "string.h"
 
 char* vga_buffer = (char*) VGA_ADDRESS; // VGA screen buffer
 
@@ -8,7 +9,7 @@ unsigned int line_idx = 1;
 
 unsigned short const vga_buffer_limit = (VGA_WIDTH * 2) * VGA_HEIGHT;
 
-/* Fills the screen with white background and black text */
+// Clears the VGA buffer.
 void clear_screen() {
     unsigned short limit = (VGA_WIDTH * 2) * VGA_HEIGHT;
     for (unsigned short i = 0; i < limit; ++i) {
@@ -17,6 +18,7 @@ void clear_screen() {
     vga_buffer_pos = 0;
 }
 
+// Fill VGA buffer with color code.
 void fill_color(unsigned color) {
     for (unsigned short i = 0; i < vga_buffer_limit; ++i) {
         vga_buffer[i] = ' ';

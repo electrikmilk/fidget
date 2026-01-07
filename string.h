@@ -1,6 +1,11 @@
 //
-// Created by brandon on 8/13/23.
+// Created by electrikmilk on 8/13/23.
 //
+
+
+/*
+ * Standard string functions.
+ */
 
 #ifndef FIDGET_STRING_H
 #define FIDGET_STRING_H
