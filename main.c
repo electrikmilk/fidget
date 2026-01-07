@@ -8,7 +8,11 @@
 int main() {
     clear_screen();
     print("Hello!\nWorld\n");
-    print("Hello\rGoodbye");
+    print("Hello\rGoodbye\n\n");
+
+    print_int(0);
+
+    print("\n");
 
     return 0;
 }

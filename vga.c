@@ -47,7 +47,7 @@ void carriage_return() {
 
 // Print a string to the current position in the VGA buffer.
 // Supports new line (\n) and carriage/line return (\r).
-int print(const char *str) {
+void print(const char *str) {
     const unsigned int str_len = strlen(str);
     for (unsigned short int i = 0; i < str_len; i++) {
         if (col_idx >= VGA_WIDTH) {
@@ -73,6 +73,11 @@ int print(const char *str) {
         vga_buffer_pos += 2;
         ++col_idx;
     }
+}
 
-    return 1;
+// Print integer to screen.
+void print_int(const int n) {
+    const auto integer = "0123456789";
+    iota(n, integer);
+    print(integer);
 }

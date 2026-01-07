@@ -43,6 +43,8 @@ void new_line();
 
 void carriage_return();
 
-int print(const char *str);
+void print(const char *str);
+
+void print_int(int n);
 
 #endif //FIDGET_VGA_H
