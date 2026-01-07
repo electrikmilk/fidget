@@ -72,6 +72,7 @@ int print(const char *str) {
             //     }
             //     ++i;
             //     continue;
+        default:
         }
 
         vga_buffer[vga_buffer_pos] = print_character;
